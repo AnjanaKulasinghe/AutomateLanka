@@ -90,6 +90,10 @@ button {
   box-shadow: 0 1px 0 rgba(21, 25, 20, .12);
 }
 
+.site-header .brand-name {
+  font-size: 14px;
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -125,6 +129,7 @@ button {
 
 .brand-name {
   font: 800 12px/1 var(--display);
+  line-height: 25px;
   letter-spacing: .14em;
 }
 
@@ -512,7 +517,7 @@ button {
 .service-card .service-index,
 .service-card .service-icon,
 .service-card p,
-.service-card>a span {
+.service-card>.service-contact-trigger span {
   transition: color .25s ease, border-color .25s ease;
 }
 
@@ -529,7 +534,7 @@ button {
   color: rgba(255, 255, 255, .65);
 }
 
-.service-card:is(:hover, :focus-within)>a span {
+.service-card:is(:hover, :focus-within)>.service-contact-trigger span {
   color: var(--lime);
 }
 
@@ -551,7 +556,29 @@ button {
   color: #777a70;
 }
 
-.service-grid:has(.service-card:is(:hover, :focus-within)) .service-feature:not(:is(:hover, :focus-within))>a span {
+.service-grid:has(.service-card:is(:hover, :focus-within)) .service-feature:not(:is(:hover, :focus-within))>.service-contact-trigger span {
+  color: #829137;
+}
+
+.service-grid:has(.service-card:hover) .service-card:not(:hover) {
+  background: transparent;
+  color: var(--ink);
+}
+
+.service-grid:has(.service-card:hover) .service-card:not(:hover) .service-index {
+  color: #858a7f;
+}
+
+.service-grid:has(.service-card:hover) .service-card:not(:hover) .service-icon {
+  border-color: var(--line);
+  color: #7b8a39;
+}
+
+.service-grid:has(.service-card:hover) .service-card:not(:hover) p {
+  color: #777a70;
+}
+
+.service-grid:has(.service-card:hover) .service-card:not(:hover)>.service-contact-trigger span {
   color: #829137;
 }
 
@@ -576,13 +603,26 @@ button {
 
 .service-icon {
   display: grid;
+  flex: 0 0 auto;
   width: 32px;
   height: 32px;
   place-items: center;
   border: 1px solid var(--line);
   border-radius: 50%;
   color: #7b8a39;
-  font: 20px/1 Georgia, serif;
+  line-height: 0;
+}
+
+.service-icon svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .service-feature .service-icon {
@@ -608,28 +648,153 @@ button {
   color: rgba(255, 255, 255, .65);
 }
 
-.service-card>a {
+.service-contact-trigger {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 15px;
+  min-height: 44px;
   padding: 12px 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
   font-size: 10px;
   font-weight: 700;
+  text-align: inherit;
   white-space: nowrap;
+  cursor: pointer;
 }
 
-.service-feature>a {
+.service-feature>.service-contact-trigger {
   border-color: rgba(255, 255, 255, .2);
 }
 
-.service-card>a span {
+.service-contact-trigger span {
   color: #829137;
   font-size: 15px;
 }
 
-.service-feature>a span {
+.service-feature>.service-contact-trigger span {
   color: var(--lime);
+}
+
+.service-dialog {
+  width: min(480px, calc(100% - 32px));
+  max-width: 100%;
+  padding: 0;
+  border: 1px solid rgba(21, 25, 20, .16);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 24px 90px rgba(0, 0, 0, .28);
+}
+
+.service-dialog::backdrop {
+  background: rgba(12, 16, 13, .68);
+  backdrop-filter: blur(4px);
+}
+
+.service-dialog-inner {
+  position: relative;
+  padding: clamp(28px, 6vw, 42px);
+}
+
+.service-dialog .eyebrow {
+  margin: 0 42px 20px 0;
+  color: #68705f;
+}
+
+.service-dialog .eyebrow-dot {
+  background: #829137;
+}
+
+.service-dialog h2 {
+  max-width: 360px;
+  margin: 0;
+  font: 600 clamp(30px, 7vw, 42px)/1.05 var(--display);
+  letter-spacing: -.06em;
+}
+
+.service-dialog-inner>p:not(.eyebrow) {
+  margin: 14px 0 24px;
+  color: #62695e;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.service-dialog-inner>p strong {
+  color: var(--ink);
+}
+
+.service-dialog-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.service-dialog-close svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+}
+
+.service-dialog-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.service-dialog-option {
+  position: relative;
+  display: flex;
+  min-height: 112px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 17px;
+  border: 1px solid rgba(21, 25, 20, .16);
+  background: #eceae0;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.service-dialog-option:hover {
+  transform: translateY(-2px);
+  border-color: var(--ink-soft);
+  background: #e4e2d6;
+}
+
+.service-dialog-label {
+  color: #68705f;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+.service-dialog-option strong {
+  padding-right: 22px;
+  font: 600 15px/1.3 var(--display);
+}
+
+.service-dialog-option svg {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 16px;
+  height: 16px;
+  color: #728131;
 }
 
 .section-pad .service-footnote {
@@ -765,8 +930,8 @@ button {
 .contact-section {
   padding: 122px 7vw 116px;
   overflow: hidden;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--paper-deep);
+  color: var(--ink);
 }
 
 .contact-layout {
@@ -780,7 +945,11 @@ button {
 
 .contact-lead .eyebrow {
   margin-bottom: 28px;
-  color: #abb09f;
+  color: #68705f;
+}
+
+.contact-lead .eyebrow-dot {
+  background: #829137;
 }
 
 .contact-lead h2 {
@@ -790,7 +959,7 @@ button {
 }
 
 .contact-lead h2 em {
-  color: var(--lime);
+  color: #6d7c30;
   font-family: Georgia, serif;
   font-weight: 400;
 }
@@ -798,7 +967,7 @@ button {
 .contact-lead>p:not(.eyebrow) {
   max-width: 360px;
   margin: 24px 0 0;
-  color: #afb3a8;
+  color: #5f665b;
   font-size: 13px;
   line-height: 1.8;
 }
@@ -811,14 +980,14 @@ button {
   gap: 7px 18px;
   margin-top: 35px;
   padding: 18px 20px;
-  background: var(--lime);
-  color: var(--ink);
+  background: var(--ink-soft);
+  color: var(--paper);
   transition: background .2s ease, transform .2s ease;
 }
 
 .contact-main:hover {
   transform: translateY(-3px);
-  background: #e4ff86;
+  background: var(--ink);
 }
 
 .contact-main>span {
@@ -839,14 +1008,14 @@ button {
   grid-column: 2;
   grid-row: 1 / 3;
   place-items: center;
-  border: 1px solid rgba(21, 25, 20, .4);
+  border: 1px solid rgba(255, 255, 255, .3);
   border-radius: 50%;
   font-size: 18px;
   font-weight: 500;
 }
 
 .contact-details {
-  border-top: 1px solid rgba(255, 255, 255, .25);
+  border-top: 1px solid rgba(21, 25, 20, .2);
 }
 
 .contact-row {
@@ -856,12 +1025,12 @@ button {
   align-items: start;
   gap: 15px;
   padding: 25px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, .2);
+  border-bottom: 1px solid rgba(21, 25, 20, .2);
 }
 
 .contact-label {
   padding-top: 4px;
-  color: #a8ae9b;
+  color: #69705f;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: .12em;
@@ -875,7 +1044,7 @@ button {
 }
 
 .contact-row-copy strong {
-  color: var(--paper);
+  color: var(--ink);
   font: 600 17px/1.35 var(--display);
   letter-spacing: -.035em;
 }
@@ -885,7 +1054,7 @@ button {
 }
 
 .contact-row-copy small {
-  color: #a8ae9b;
+  color: #62695e;
   font-size: 10px;
   line-height: 1.5;
 }
@@ -896,7 +1065,7 @@ button {
 
 .contact-arrow {
   justify-self: end;
-  color: var(--lime);
+  color: #728131;
   font-size: 17px;
   transition: transform .2s ease;
 }
@@ -910,7 +1079,7 @@ a.contact-row:hover .contact-arrow {
   align-items: center;
   gap: 8px;
   margin-top: 7px;
-  color: var(--lime);
+  color: #68792c;
   font-size: 10px;
   font-weight: 700;
 }
@@ -931,8 +1100,8 @@ a.contact-row:hover .contact-arrow {
   height: 6px;
   flex: 0 0 auto;
   border-radius: 50%;
-  background: var(--lime);
-  box-shadow: 0 0 0 4px rgba(214, 241, 106, .12);
+  background: #829137;
+  box-shadow: 0 0 0 4px rgba(130, 145, 55, .14);
 }
 
 .site-footer {
@@ -1060,6 +1229,14 @@ a.contact-row:hover .contact-arrow {
   transition-delay: .18s;
 }
 
+.service-card:nth-child(5) {
+  transition-delay: .24s;
+}
+
+.service-card:nth-child(6) {
+  transition-delay: .30s;
+}
+
 @keyframes hero-settle {
   from {
     transform: scale(1.06);
@@ -1145,7 +1322,7 @@ a.contact-row:hover .contact-arrow {
     grid-row: 2;
   }
 
-  .service-card>a {
+  .service-contact-trigger {
     grid-column: 3;
     grid-row: 1 / 3;
     flex-direction: column;
@@ -1188,8 +1365,8 @@ a.contact-row:hover .contact-arrow {
     padding: 0 22px;
   }
 
-  .brand-name {
-    font-size: 11px;
+  .site-header .brand-name {
+    font-size: 12px;
   }
 
   .menu-toggle {
@@ -1277,7 +1454,7 @@ a.contact-row:hover .contact-arrow {
   .hero-content {
     position: absolute;
     right: 23px;
-    bottom: 72px;
+    bottom: 92px;
     left: 23px;
     width: auto;
     padding: 0;
@@ -1473,7 +1650,7 @@ a.contact-row:hover .contact-arrow {
     font-size: 10px;
   }
 
-  .service-card>a {
+  .service-contact-trigger {
     grid-column: 2;
     grid-row: 3;
     flex-direction: row;
@@ -1483,6 +1660,14 @@ a.contact-row:hover .contact-arrow {
     padding: 7px 0 0;
     font-size: 10px;
     text-align: left;
+  }
+
+  .service-dialog-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .service-dialog-option {
+    min-height: 80px;
   }
 
   .section-pad .service-footnote {
@@ -1648,7 +1833,7 @@ a.contact-row:hover .contact-arrow {
 
 @media (max-height: 720px) and (max-width: 700px) {
   .hero-content {
-    bottom: 50px;
+    bottom: 92px;
   }
 
   .hero .eyebrow {
