@@ -1,6 +1,6 @@
-# Auto Mate Lanka
+# AutoMate Lanka
 
-A responsive, single-page website for Auto Mate Lanka, a mobile automotive service in Auckland. The site is built with plain HTML, CSS, and JavaScript for GitHub Pages. It has no build step or server-side dependencies.
+A responsive, single-page website for AutoMate Lanka, a mobile automotive service in Auckland. The site is built with plain HTML, CSS, and JavaScript for GitHub Pages. It has no build step or server-side dependencies.
 
 ## Project files
 
@@ -8,6 +8,8 @@ A responsive, single-page website for Auto Mate Lanka, a mobile automotive servi
 - `css/style.css` contains the responsive styles.
 - `js/main.js` handles the mobile navigation and small page interactions.
 - `img/` contains the favicon and optimized desktop and mobile photography.
+- `robots.txt` and `sitemap.xml` provide crawler discovery for the public homepage.
+- `scripts/check_seo.py` runs dependency-free SEO regression checks.
 
 ## Preview locally
 
@@ -18,6 +20,14 @@ python3 -m http.server 8000
 ```
 
 Then visit `http://localhost:8000`.
+
+## Check SEO metadata
+
+Run `python3 scripts/check_seo.py` to validate the page metadata, canonical URL,
+JSON-LD, internal fragment links, sitemap and robots policy. Update this checker,
+the sitemap and the SEO documents when adding any public route. There is no CI
+workflow in this repository today, so the checker is available for local and
+pre-publish use.
 
 ## Publish with GitHub Pages
 

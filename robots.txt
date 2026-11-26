@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://automatelanka.koungasolutions.co.nz/sitemap.xml

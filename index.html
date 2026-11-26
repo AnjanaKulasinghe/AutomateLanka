@@ -6,12 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f3f1e9">
   <meta name="description"
-    content="Mobile vehicle servicing and repairs across Auckland. Auto Mate Lanka brings practical automotive care to your home or workplace.">
+    content="Mobile mechanic in Auckland for vehicle servicing, repairs and diagnostics. AutoMate Lanka brings practical car care to your home or workplace.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://automatelanka.koungasolutions.co.nz/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Auto Mate Lanka | Mobile Automotive Care, Auckland">
+  <meta property="og:site_name" content="AutoMate Lanka">
+  <meta property="og:title" content="Mobile Mechanic Auckland | AutoMate Lanka">
   <meta property="og:description"
     content="Straightforward vehicle servicing and repairs, brought to your home or workplace across Auckland.">
-  <title>Auto Mate Lanka | Mobile Automotive Care, Auckland</title>
+  <meta property="og:url" content="https://automatelanka.koungasolutions.co.nz/">
+  <meta property="og:image" content="https://automatelanka.koungasolutions.co.nz/img/automate-hero.jpg">
+  <meta property="og:image:alt" content="Mobile vehicle care in Auckland">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mobile Mechanic Auckland | AutoMate Lanka">
+  <meta name="twitter:description"
+    content="Straightforward vehicle servicing and repairs, brought to your home or workplace across Auckland.">
+  <meta name="twitter:image" content="https://automatelanka.koungasolutions.co.nz/img/automate-hero.jpg">
+  <title>Mobile Mechanic Auckland | AutoMate Lanka</title>
   <link rel="preload" as="image" href="img/automate-hero.jpg" fetchpriority="high">
   <link rel="preload" as="image" href="img/automate-hero-mobile.jpg" media="(max-width: 700px)" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,27 +35,47 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "AutoRepair",
-      "name": "Auto Mate Lanka",
-      "telephone": "+64 22 381 0815",
-      "email": "automatelankanz@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "32A The Boulevard",
-        "addressLocality": "Sunnyhills",
-        "addressRegion": "Auckland",
-        "addressCountry": "NZ"
-      },
-      "areaServed": {
-        "@type": "City",
-        "name": "Auckland"
-      },
-      "openingHoursSpecification": [{
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "09:00",
-        "closes": "17:00"
-      }]
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://automatelanka.koungasolutions.co.nz/#website",
+          "url": "https://automatelanka.koungasolutions.co.nz/",
+          "name": "AutoMate Lanka",
+          "inLanguage": "en-NZ",
+          "publisher": { "@id": "https://automatelanka.koungasolutions.co.nz/#business" }
+        },
+        {
+          "@type": "AutoRepair",
+          "@id": "https://automatelanka.koungasolutions.co.nz/#business",
+          "name": "AutoMate Lanka",
+          "url": "https://automatelanka.koungasolutions.co.nz/",
+          "description": "Mobile vehicle servicing and repairs across Auckland, brought to the customer's home or workplace.",
+          "telephone": "+64 22 381 0815",
+          "email": "automatelankanz@gmail.com",
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Auckland Region, New Zealand"
+          },
+          "openingHoursSpecification": [{
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "17:00"
+          }],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Automotive services",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Vehicle diagnostics and reports" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Engine and transmission repairs and tune-ups" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Vehicle electrical repairs and accessory installation" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Oil and fluid service" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brake, suspension and WoF report repairs" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hybrid and high-voltage vehicle servicing, maintenance and repairs" } }
+            ]
+          }
+        }
+      ]
     }
   </script>
 </head>
@@ -52,9 +83,9 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="Auto Mate Lanka home">
+    <a class="brand" href="#top" aria-label="AutoMate Lanka home">
       <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
-      <span class="brand-name">AUTO MATE <b>LANKA</b></span>
+      <span class="brand-name">AUTOMATE <b>LANKA</b></span>
     </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
       <span></span><span></span>
@@ -78,8 +109,8 @@
       <div class="hero-content">
         <p class="eyebrow hero-eyebrow"><span class="eyebrow-dot"></span> Mobile vehicle care · Auckland</p>
         <h1 id="hero-title">Good care.<br><em>Right where</em><br>you are.</h1>
-        <p class="hero-intro">Straightforward servicing and repairs, brought to your home or workplace. Less time off
-          the road, more time for what matters.</p>
+        <p class="hero-intro">Straightforward vehicle servicing, repairs and diagnostics across Auckland, brought to
+          your home or workplace. Tell us what your car needs and ask about a suitable time.</p>
         <div class="hero-actions">
           <a class="button button-lime" href="tel:+64223810815">Talk to a mechanic <span aria-hidden="true"><svg
                 class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -106,8 +137,7 @@
           <p class="eyebrow"><span class="eyebrow-dot"></span> The work, made simple</p>
           <h2>Car trouble,<br><em>meet your match.</em></h2>
         </div>
-        <p class="heading-copy">From a warning light to routine upkeep, get practical help with the things that keep
-          your car moving.</p>
+        <p class="heading-copy">Diagnostics, servicing and repairs for the systems that keep your vehicle moving.</p>
       </div>
       <div class="service-grid">
         <article class="service-card service-feature reveal">
@@ -234,7 +264,7 @@
     </section>
 
     <section class="mobile-section" id="about">
-      <div class="mobile-art" role="img" aria-label="Auto Mate Lanka mechanic working on a car in an Auckland driveway">
+      <div class="mobile-art" role="img" aria-label="AutoMate Lanka mechanic working on a car in an Auckland driveway">
         <span class="art-kicker">MOBILE AUTOMOTIVE CARE <i></i> AUCKLAND</span>
         <div class="art-statement">THE WORKSHOP<br>CAN <em>come to you.</em></div>
         <span class="art-index" aria-hidden="true">01</span>
@@ -243,10 +273,10 @@
       <div class="mobile-copy reveal">
         <p class="eyebrow"><span class="eyebrow-dot"></span> A better kind of service call</p>
         <h2>Your day<br>keeps <em>moving.</em></h2>
-        <p>Skip the workshop drop-off. Auto Mate Lanka is a mobile vehicle service working across the Auckland region,
-          so help can come to your home or workplace.</p>
-        <p>Tell us what your vehicle is doing, where you are, and when you are available. We will take it from there.
-        </p>
+        <p>AutoMate Lanka is a mobile vehicle service across the Auckland region. We come to your home or workplace
+          for the services listed here.</p>
+        <p>Tell us what is happening with your vehicle, where it is, and when you are available. Call or email to
+          discuss the next step.</p>
         <a class="button button-ink" href="tel:+64223810815">Call 022 381 0815 <span aria-hidden="true"><svg
               class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path d="M7 17 17 7M7 7h10v10" />
@@ -259,9 +289,9 @@
         <div class="contact-lead reveal">
           <p class="eyebrow"><span class="eyebrow-dot"></span> Start with a conversation</p>
           <h2>Let's get<br>you <em>moving.</em></h2>
-          <p>Tell us what your car is doing and where you are. We will help you work out the next step.</p>
+          <p>Call or email with your vehicle details and location. We can discuss the work needed and a suitable time.</p>
           <a class="contact-main" href="tel:+64223810815">
-            <span>CALL AUTO MATE LANKA</span>
+            <span>CALL AUTOMATE LANKA</span>
             <strong>022 381 0815</strong>
             <b aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M7 17 17 7M7 7h10v10" />
@@ -271,8 +301,8 @@
         <div class="contact-details reveal">
           <a class="contact-row" href="mailto:automatelankanz@gmail.com?subject=Vehicle%20service%20enquiry">
             <span class="contact-label">EMAIL</span>
-            <span class="contact-row-copy"><strong class="email-value">automatelankanz@gmail.com</strong><small>Send
-                through your vehicle details</small></span>
+            <span class="contact-row-copy"><strong class="email-value">automatelankanz@gmail.com</strong><small>Include
+                your vehicle and the work you need</small></span>
             <span class="contact-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 24 24"
                 aria-hidden="true" focusable="false">
                 <path d="M7 17 17 7M7 7h10v10" />
@@ -301,16 +331,16 @@
     <div class="footer-wrap">
       <div class="footer-main">
         <div class="footer-identity">
-          <a class="brand footer-brand" href="#top" aria-label="Auto Mate Lanka, back to top">
+          <a class="brand footer-brand" href="#top" aria-label="AutoMate Lanka, back to top">
             <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
-            <span class="brand-name">AUTO MATE <b>LANKA</b></span>
+            <span class="brand-name">AUTOMATE <b>LANKA</b></span>
           </a>
           <p>Mobile vehicle care across Auckland.</p>
         </div>
         <a class="back-top" href="#top"><span>BACK TO TOP</span><b aria-hidden="true">↑</b></a>
       </div>
       <div class="footer-bottom">
-        <small>© <span id="year">2026</span> Auto Mate Lanka</small>
+        <small>© <span id="year">2026</span> AutoMate Lanka</small>
         <a class="site-credit" href="https://www.koungasolutions.co.nz/" target="_blank"
           rel="noopener noreferrer">Website by <strong>Kounga Solutions</strong><span aria-hidden="true"><svg
               class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
